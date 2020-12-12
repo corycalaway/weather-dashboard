@@ -96,20 +96,43 @@ dayTwoDate.textContent = dateTime.plus({ days: 2}).toLocaleString();
 // create day three of five day forcast
 var fiveDayForcastDayThree = document.createElement('div');
 fiveDayForcastDayThree.classList.add("col");
-fiveDayForcastDayThree.textContent = "test3";
 fiveDayForcastDays.appendChild(fiveDayForcastDayThree);
+
+// list created for day three
+var dayThreeDate = document.createElement('li');
+dayThreeDate.classList.add("list-group-item");
+fiveDayForcastDayThree.appendChild(dayThreeDate);
+
+// add date time plus 3 day to forcast
+dayThreeDate.textContent = dateTime.plus({ days: 3}).toLocaleString();
+
 
 // create day four of five day forcast
 var fiveDayForcastDayFour = document.createElement('div');
 fiveDayForcastDayFour.classList.add("col");
-fiveDayForcastDayFour.textContent = "test4";
 fiveDayForcastDays.appendChild(fiveDayForcastDayFour);
+
+// list created for day four
+var dayFourDate = document.createElement('li');
+dayFourDate.classList.add("list-group-item");
+fiveDayForcastDayFour.appendChild(dayFourDate);
+
+// add date time plus 4 day to forcast
+dayFourDate.textContent = dateTime.plus({ days: 4}).toLocaleString();
+
 
 // create day five of five day forcast
 var fiveDayForcastDayFive = document.createElement('div');
 fiveDayForcastDayFive.classList.add("col");
-fiveDayForcastDayFive.textContent = "test5";
 fiveDayForcastDays.appendChild(fiveDayForcastDayFive);
+
+// list created for day five
+var dayFiveDate = document.createElement('li');
+dayFiveDate.classList.add("list-group-item");
+fiveDayForcastDayFive.appendChild(dayFiveDate);
+
+// add date time plus 5 day to forcast
+dayFiveDate.textContent = dateTime.plus({ days: 5}).toLocaleString();
 };
 
 //currentWeatherFunction();

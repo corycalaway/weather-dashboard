@@ -36,9 +36,56 @@ currentWeatherEl.appendChild(currentUvIndex);
 
 
 // add five day forcast
-var fiveDayForcast = document.createElement('h3');
-fiveDayForcast.textContent = "testing2";
+var fiveDayForcast = document.createElement('div');
+fiveDayForcast.classList.add("container");
 currentWeather.appendChild(fiveDayForcast);
+
+
+var fiveDayForcastHeaderEl = document.createElement('div');
+fiveDayForcastHeaderEl.classList.add("row");
+fiveDayForcast.appendChild(fiveDayForcastHeaderEl);
+
+// five day forcast header text
+var fiveDayForcastHeader = document.createElement('h3');
+fiveDayForcastHeader.classList.add("col-8");
+fiveDayForcastHeader.textContent = "5-Day Forecast:";
+fiveDayForcast.appendChild(fiveDayForcastHeader);
+
+// create row for five day forcast
+var fiveDayForcastDays = document.createElement('div');
+fiveDayForcastDays.classList.add("row");
+fiveDayForcastDays.classList.add("justify-content-between");
+fiveDayForcast.appendChild(fiveDayForcastDays);
+
+// create day one of five day forcast
+var fiveDayForcastDayOne = document.createElement('div');
+fiveDayForcastDayOne.classList.add("col-2");
+fiveDayForcastDayOne.textContent = "test";
+fiveDayForcastDays.appendChild(fiveDayForcastDayOne);
+
+// create day two of five day forcast
+var fiveDayForcastDayTwo = document.createElement('div');
+fiveDayForcastDayTwo.classList.add("col-2");
+fiveDayForcastDayTwo.textContent = "test2";
+fiveDayForcastDays.appendChild(fiveDayForcastDayTwo);
+
+// create day three of five day forcast
+var fiveDayForcastDayThree = document.createElement('div');
+fiveDayForcastDayThree.classList.add("col-2");
+fiveDayForcastDayThree.textContent = "test3";
+fiveDayForcastDays.appendChild(fiveDayForcastDayThree);
+
+// create day four of five day forcast
+var fiveDayForcastDayFour = document.createElement('div');
+fiveDayForcastDayFour.classList.add("col-2");
+fiveDayForcastDayFour.textContent = "test4";
+fiveDayForcastDays.appendChild(fiveDayForcastDayFour);
+
+// create day five of five day forcast
+var fiveDayForcastDayFive = document.createElement('div');
+fiveDayForcastDayFive.classList.add("col-2");
+fiveDayForcastDayFive.textContent = "test5";
+fiveDayForcastDays.appendChild(fiveDayForcastDayFive);
 };
 
 currentWeatherFunction();

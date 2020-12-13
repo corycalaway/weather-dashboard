@@ -152,11 +152,22 @@ $('#clickToSearch').on( 'click', function() {
    // var currentCityName = document.createElement('h3');
     //$('#cityName').append(currentCityName);
     var cityNameEl = document.querySelector('#cityName')
-    cityNameEl.textContent = searchTermValue + ' ' + '(' + dateTime.toLocaleString() + ')';
+    
 
     //searchTermValue.value = '';
-    
- 
+    fetch(
+
+        'https://api.openweathermap.org/data/2.5/weather?q=' + searchTermValue + '&appid=0acf12d8bd778cde56ecc4787ac0581a'
+        //'https://api.openweathermap.org/data/2.5/forecast?id=524901&appid=0acf12d8bd778cde56ecc4787ac0581a'
+    )
+    .then(function(response) {
+        return response.json();
+      })
+      .then(function(response) {
+        console.log(response);
+        cityNameEl.textContent = searchTermValue + ' ' + '(' + dateTime.toLocaleString() + ')';
+      })
+      
 })
 // var currentWeatherCity = document.createElement('li');
 // $(currentWeatherCity).attr('id', 'cityName')

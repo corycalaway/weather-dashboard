@@ -622,7 +622,8 @@ var searchHistoryList = function() {
     
     // var addedForRemoval = document.querySelector("#addedForRemoval")
     // addedForRemoval.remove();
-
+    var reversed = list.reverse();
+    list = reversed
     var searchHistoryEl = document.querySelector('#searchHistoryEl')
     var taskRowHistory = $("<ul>").addClass("row").attr("id", "addedForRemoval")
     $(searchHistoryEl).append(taskRowHistory)

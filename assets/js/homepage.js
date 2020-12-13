@@ -219,7 +219,23 @@ $("#clickToSearch").on("click", function () {
           console.log(data);
 
           //0 to 3 green for favorable greater than 3 less 7 moderate greater than 7 severe
-          cityUvIndex.textContent = "UV Index: " + ("src", data.value);
+          var uvIndexTitle = document.querySelector('#uvIndexTitle');
+          uvIndexTitle.textContent = "UV Index: "
+          cityUvIndex.textContent = " " + ("src", data.value);
+          console.log(cityUvIndex)
+          if (("src", data.value) <= 3) {
+            cityUvIndex.classList.remove('bg-danger')
+            cityUvIndex.classList.remove('bg-warning')
+            cityUvIndex.classList.add('bg-success')
+        } else if (("src", data.value) > 3 && ("src", data.value) < 7) {
+            cityUvIndex.classList.remove('bg-danger')
+            cityUvIndex.classList.remove('bg-success')
+            cityUvIndex.classList.add('bg-warning')
+        } else {
+            cityUvIndex.classList.remove('bg-warning')
+            cityUvIndex.classList.remove('bg-success')
+            cityUvIndex.classList.add('bg-danger')
+        }
 
           fetch(
             // 'https://api.openweathermap.org/data/2.5/forecast?q='+ searchTermValue +'&appid=0acf12d8bd778cde56ecc4787ac0581a&units=imperial'

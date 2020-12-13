@@ -606,6 +606,7 @@ $("#clickToSearch").on("click", function () {
 // color uv index
 // conditions Snow Clouds Clear Rain
 
+// save data to local storage
 var saveCitySearch = function(searchTermValue) {
  console.log(searchTermValue);
  var savedCityInfo = searchTermValue
@@ -613,7 +614,13 @@ var saveCitySearch = function(searchTermValue) {
  console.log(savedCityInfo)
  list.push(savedCityInfo)
  localStorage.setItem("saveTextList", JSON.stringify(list))
+    searchHistoryList()
 }
+
+var searchHistoryList = function() {
+    console.log('starthere')
+}
+
 // on click save value of input and create an unordered list
 // save value to array
 // push array to local storage

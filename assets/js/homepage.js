@@ -207,7 +207,9 @@ $("#clickToSearch").on("click", function () {
           cityUvIndex.textContent = "UV Index: " + ("src", data.value);
 
           fetch(
-          'https://api.openweathermap.org/data/2.5/forecast?q='+ searchTermValue +'&appid=0acf12d8bd778cde56ecc4787ac0581a&units=imperial'
+         // 'https://api.openweathermap.org/data/2.5/forecast?q='+ searchTermValue +'&appid=0acf12d8bd778cde56ecc4787ac0581a&units=imperial'
+
+         'https://api.openweathermap.org/data/2.5/onecall?lat=' + cityLat + '&lon=' + cityLon + '&exclude=hourly&appid=0acf12d8bd778cde56ecc4787ac0581a&units=imperial'
 
           )
           .then(function (dataDayOne) {
@@ -217,27 +219,66 @@ $("#clickToSearch").on("click", function () {
 
             
             console.log(dataDayOne);
-            console.log(dataDayOne.list[1].weather[0].main)
-            console.log(dataDayOne.list[1].weather[0].id)
-            dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/10d@2x.png' />"
-            console.log(dataDayOne.list[1].main.temp)
-            console.log(dataDayOne.list[1].main.humidity)
+            // used time stamp converter to confirm date
+             console.log(dataDayOne.daily[1].weather[0].id)
+             console.log('Temp: ' + dataDayOne.daily[1].temp.day)
+             console.log('Humidity: ' + dataDayOne.daily[1].humidity + '%')
+            if (dataDayOne.daily[1].weather[0].id < 300) {
+                dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/11d@2x.png' />"
+            } else if (dataDayOne.daily[1].weather[0].id > 299  && dataDayOne.daily[1].weather[0].id < 500 ){
+                dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/09d@2x.png' />"
+            } else if (dataDayOne.daily[1].weather[0].id > 499  && dataDayOne.daily[1].weather[0].id < 600) {
+                dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/10d@2x.png' />"
+            } else if (dataDayOne.daily[1].weather[0].id > 599  && dataDayOne.daily[1].weather[0].id < 701) {
+                dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/13d@2x.png' />"
+            } else if (dataDayOne.daily[1].weather[0].id > 700  && dataDayOne.daily[1].weather[0].id < 800) {
+                dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/50d@2x.png' />"
+            } else if (dataDayOne.daily[1].weather[0].id === 800) {
+                dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/01d@2x.png' />"
+            } else if (dataDayOne.daily[1].weather[0].id === 801) {
+                dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/02d@2x.png' />"
+            } else if (dataDayOne.daily[1].weather[0].id === 802) {
+                dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/03d@2x.png' />"
+            } else {
+                dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/04d@2x.png' />"
+            };
+            
+             // dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/10d@2x.png' />"
+             console.log(dataDayOne.daily[2].weather[0].id)
+             console.log('Temp: ' + dataDayOne.daily[2].temp.day)
+             console.log('Humidity: ' + dataDayOne.daily[2].humidity + '%')
 
-            console.log(dataDayOne.list[9].weather[0].main)
-            console.log(dataDayOne.list[9].main.temp)
-            console.log(dataDayOne.list[9].main.humidity)
+             console.log(dataDayOne.daily[3].weather[0].id)
+             console.log('Temp: ' + dataDayOne.daily[3].temp.day)
+             console.log('Humidity: ' + dataDayOne.daily[3].humidity + '%')
 
-            console.log(dataDayOne.list[17].weather[0].main)
-            console.log(dataDayOne.list[17].main.temp)
-            console.log(dataDayOne.list[17].main.humidity)
+             console.log(dataDayOne.daily[4].weather[0].id)
+             console.log('Temp: ' + dataDayOne.daily[4].temp.day)
+             console.log('Humidity: ' + dataDayOne.daily[4].humidity + '%')
 
-            console.log(dataDayOne.list[25].weather[0].main)
-            console.log(dataDayOne.list[25].main.temp)
-            console.log(dataDayOne.list[25].main.humidity)
+             console.log(dataDayOne.daily[5].weather[0].id)
+             console.log('Temp: ' + dataDayOne.daily[5].temp.day)
+             console.log('Humidity: ' + dataDayOne.daily[5].humidity + '%')
+            // console.log(dataDayOne.list[1].weather[0].id)
+            
+            // console.log(dataDayOne.list[1].main.temp)
+            // console.log(dataDayOne.list[1].main.humidity)
 
-            console.log(dataDayOne.list[39].weather[0].main)
-            console.log(dataDayOne.list[39].main.temp)
-            console.log(dataDayOne.list[39].main.humidity)
+            // console.log(dataDayOne.list[9].weather[0].main)
+            // console.log(dataDayOne.list[9].main.temp)
+            // console.log(dataDayOne.list[9].main.humidity)
+
+            // console.log(dataDayOne.list[17].weather[0].main)
+            // console.log(dataDayOne.list[17].main.temp)
+            // console.log(dataDayOne.list[17].main.humidity)
+
+            // console.log(dataDayOne.list[25].weather[0].main)
+            // console.log(dataDayOne.list[25].main.temp)
+            // console.log(dataDayOne.list[25].main.humidity)
+
+            // console.log(dataDayOne.list[39].weather[0].main)
+            // console.log(dataDayOne.list[39].main.temp)
+            // console.log(dataDayOne.list[39].main.humidity)
             
           });
         });

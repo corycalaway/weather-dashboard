@@ -513,6 +513,26 @@ $("#clickToSearch").on("click", function () {
               var dayOneHumidity = document.querySelector('#dayOneHumidity');
               dayOneHumidity.textContent = ("Humidity: " + dataDayOne.daily[1].humidity + ' %');
 
+              var dayTwoTemperature = document.querySelector('#dayTwoTemperature')
+              dayTwoTemperature.innerHTML = ("Temp: " + dataDayOne.daily[2].temp.day + ' &#8457;');
+              var dayTwoHumidity = document.querySelector('#dayTwoHumidity');
+              dayTwoHumidity.textContent = ("Humidity: " + dataDayOne.daily[2].humidity + ' %');
+
+              var dayThreeTemperature = document.querySelector('#dayThreeTemperature')
+              dayThreeTemperature.innerHTML = ("Temp: " + dataDayOne.daily[3].temp.day + ' &#8457;');
+              var dayThreeHumidity = document.querySelector('#dayThreeHumidity');
+              dayThreeHumidity.textContent = ("Humidity: " + dataDayOne.daily[3].humidity + ' %');
+
+              var dayFourTemperature = document.querySelector('#dayFourTemperature')
+              dayFourTemperature.innerHTML = ("Temp: " + dataDayOne.daily[4].temp.day + ' &#8457;');
+              var dayFourHumidity = document.querySelector('#dayFourHumidity');
+              dayFourHumidity.textContent = ("Humidity: " + dataDayOne.daily[4].humidity + ' %');
+
+              var dayFiveTemperature = document.querySelector('#dayFiveTemperature')
+              dayFiveTemperature.innerHTML = ("Temp: " + dataDayOne.daily[5].temp.day + ' &#8457;');
+              var dayFiveHumidity = document.querySelector('#dayFiveHumidity');
+              dayFiveHumidity.textContent = ("Humidity: " + dataDayOne.daily[5].humidity + ' %');
+
               console.log(dataDayOne.daily[2].weather[0].id);
               console.log("Temp: " + dataDayOne.daily[2].temp.day);
               console.log("Humidity: " + dataDayOne.daily[2].humidity + "%");

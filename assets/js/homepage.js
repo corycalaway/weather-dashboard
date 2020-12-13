@@ -193,8 +193,8 @@ $("#clickToSearch").on("click", function () {
       cityNameEl.textContent =
         searchTermValue + " (" + dateTime.toLocaleString() + ")";
       //cityTemp.textContent = 'Temperature:';
-      cityTemp.textContent =
-        "Temperature: " + ("src", response.main.temp) + " ℉";
+      cityTemp.innerHTML =
+        "Temperature: " + ("src", response.main.temp) + '&#8457;'
       cityHumidity.textContent =
         "Humidity: " + ("src", response.main.humidity) + " %";
       cityWindSpeed.textContent =
@@ -239,251 +239,256 @@ $("#clickToSearch").on("click", function () {
               console.log(dataDayOne.daily[1].weather[0].id);
               console.log("Temp: " + dataDayOne.daily[1].temp.day);
               console.log("Humidity: " + dataDayOne.daily[1].humidity + "%");
-              if (dataDayOne.daily[1].weather[0].id < 300) {
-                dayOne.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
-              } else if (
-                dataDayOne.daily[1].weather[0].id > 299 &&
-                dataDayOne.daily[1].weather[0].id < 500
-              ) {
-                dayOne.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
-              } else if (
-                dataDayOne.daily[1].weather[0].id > 499 &&
-                dataDayOne.daily[1].weather[0].id < 600
-              ) {
-                dayOne.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
-              } else if (
-                dataDayOne.daily[1].weather[0].id > 599 &&
-                dataDayOne.daily[1].weather[0].id < 701
-              ) {
-                dayOne.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
-              } else if (
-                dataDayOne.daily[1].weather[0].id > 700 &&
-                dataDayOne.daily[1].weather[0].id < 800
-              ) {
-                dayOne.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
-              } else if (dataDayOne.daily[1].weather[0].id === 800) {
-                dayOne.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
-              } else if (dataDayOne.daily[1].weather[0].id === 801) {
-                dayOne.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
-              } else if (dataDayOne.daily[1].weather[0].id === 802) {
-                dayOne.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
-              } else {
-                dayOne.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
-              }
 
-              if (dataDayOne.daily[2].weather[0].id < 300) {
-                dayTwo.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
-              } else if (
-                dataDayOne.daily[2].weather[0].id > 299 &&
-                dataDayOne.daily[2].weather[0].id < 500
-              ) {
-                dayTwo.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
-              } else if (
-                dataDayOne.daily[2].weather[0].id > 499 &&
-                dataDayOne.daily[2].weather[0].id < 600
-              ) {
-                dayTwo.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
-              } else if (
-                dataDayOne.daily[2].weather[0].id > 599 &&
-                dataDayOne.daily[2].weather[0].id < 701
-              ) {
-                dayTwo.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
-              } else if (
-                dataDayOne.daily[2].weather[0].id > 700 &&
-                dataDayOne.daily[2].weather[0].id < 800
-              ) {
-                dayTwo.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
-              } else if (dataDayOne.daily[2].weather[0].id === 800) {
-                dayTwo.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
-              } else if (dataDayOne.daily[2].weather[0].id === 801) {
-                dayTwo.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
-              } else if (dataDayOne.daily[2].weather[0].id === 802) {
-                dayTwo.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
-              } else {
-                dayTwo.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
-              }
+                var testing = ("src", dataDayOne.daily[1].weather[0].icon)
+              dayOne.innerHTML =
+                "<img src='https://openweathermap.org/img/wn/" + testing + "@2x.png' />";(dataDayOne.daily[1].weather[0].id)
 
-              if (dataDayOne.daily[3].weather[0].id < 300) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
-              } else if (
-                dataDayOne.daily[3].weather[0].id > 299 &&
-                dataDayOne.daily[3].weather[0].id < 500
-              ) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
-              } else if (
-                dataDayOne.daily[3].weather[0].id > 499 &&
-                dataDayOne.daily[3].weather[0].id < 600
-              ) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
-              } else if (
-                dataDayOne.daily[3].weather[0].id > 599 &&
-                dataDayOne.daily[3].weather[0].id < 701
-              ) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
-              } else if (
-                dataDayOne.daily[3].weather[0].id > 700 &&
-                dataDayOne.daily[3].weather[0].id < 800
-              ) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
-              } else if (dataDayOne.daily[3].weather[0].id === 800) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
-              } else if (dataDayOne.daily[3].weather[0].id === 801) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
-              } else if (dataDayOne.daily[3].weather[0].id === 802) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
-              } else {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
-              }
+            //   if (dataDayOne.daily[1].weather[0].id < 300) {
+            //     dayOne.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[1].weather[0].id > 299 &&
+            //     dataDayOne.daily[1].weather[0].id < 500
+            //   ) {
+            //     dayOne.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[1].weather[0].id > 499 &&
+            //     dataDayOne.daily[1].weather[0].id < 600
+            //   ) {
+            //     dayOne.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[1].weather[0].id > 599 &&
+            //     dataDayOne.daily[1].weather[0].id < 701
+            //   ) {
+            //     dayOne.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[1].weather[0].id > 700 &&
+            //     dataDayOne.daily[1].weather[0].id < 800
+            //   ) {
+            //     dayOne.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
+            //   } else if (dataDayOne.daily[1].weather[0].id === 800) {
+            //     dayOne.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
+            //   } else if (dataDayOne.daily[1].weather[0].id === 801) {
+            //     dayOne.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
+            //   } else if (dataDayOne.daily[1].weather[0].id === 802) {
+            //     dayOne.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
+            //   } else {
+            //     dayOne.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
+            //   }
 
-              if (dataDayOne.daily[3].weather[0].id < 300) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
-              } else if (
-                dataDayOne.daily[3].weather[0].id > 299 &&
-                dataDayOne.daily[3].weather[0].id < 500
-              ) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
-              } else if (
-                dataDayOne.daily[3].weather[0].id > 499 &&
-                dataDayOne.daily[3].weather[0].id < 600
-              ) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
-              } else if (
-                dataDayOne.daily[3].weather[0].id > 599 &&
-                dataDayOne.daily[3].weather[0].id < 701
-              ) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
-              } else if (
-                dataDayOne.daily[3].weather[0].id > 700 &&
-                dataDayOne.daily[3].weather[0].id < 800
-              ) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
-              } else if (dataDayOne.daily[3].weather[0].id === 800) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
-              } else if (dataDayOne.daily[3].weather[0].id === 801) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
-              } else if (dataDayOne.daily[3].weather[0].id === 802) {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
-              } else {
-                dayThree.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
-              }
+            //   if (dataDayOne.daily[2].weather[0].id < 300) {
+            //     dayTwo.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[2].weather[0].id > 299 &&
+            //     dataDayOne.daily[2].weather[0].id < 500
+            //   ) {
+            //     dayTwo.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[2].weather[0].id > 499 &&
+            //     dataDayOne.daily[2].weather[0].id < 600
+            //   ) {
+            //     dayTwo.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[2].weather[0].id > 599 &&
+            //     dataDayOne.daily[2].weather[0].id < 701
+            //   ) {
+            //     dayTwo.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[2].weather[0].id > 700 &&
+            //     dataDayOne.daily[2].weather[0].id < 800
+            //   ) {
+            //     dayTwo.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
+            //   } else if (dataDayOne.daily[2].weather[0].id === 800) {
+            //     dayTwo.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
+            //   } else if (dataDayOne.daily[2].weather[0].id === 801) {
+            //     dayTwo.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
+            //   } else if (dataDayOne.daily[2].weather[0].id === 802) {
+            //     dayTwo.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
+            //   } else {
+            //     dayTwo.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
+            //   }
 
-              if (dataDayOne.daily[4].weather[0].id < 300) {
-                dayFour.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
-              } else if (
-                dataDayOne.daily[4].weather[0].id > 299 &&
-                dataDayOne.daily[4].weather[0].id < 500
-              ) {
-                dayFour.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
-              } else if (
-                dataDayOne.daily[4].weather[0].id > 499 &&
-                dataDayOne.daily[4].weather[0].id < 600
-              ) {
-                dayFour.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
-              } else if (
-                dataDayOne.daily[4].weather[0].id > 599 &&
-                dataDayOne.daily[4].weather[0].id < 701
-              ) {
-                dayFour.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
-              } else if (
-                dataDayOne.daily[4].weather[0].id > 700 &&
-                dataDayOne.daily[4].weather[0].id < 800
-              ) {
-                dayFour.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
-              } else if (dataDayOne.daily[4].weather[0].id === 800) {
-                dayFour.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
-              } else if (dataDayOne.daily[4].weather[0].id === 801) {
-                dayFour.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
-              } else if (dataDayOne.daily[4].weather[0].id === 802) {
-                dayFour.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
-              } else {
-                dayFour.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
-              }
+            //   if (dataDayOne.daily[3].weather[0].id < 300) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[3].weather[0].id > 299 &&
+            //     dataDayOne.daily[3].weather[0].id < 500
+            //   ) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[3].weather[0].id > 499 &&
+            //     dataDayOne.daily[3].weather[0].id < 600
+            //   ) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[3].weather[0].id > 599 &&
+            //     dataDayOne.daily[3].weather[0].id < 701
+            //   ) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[3].weather[0].id > 700 &&
+            //     dataDayOne.daily[3].weather[0].id < 800
+            //   ) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
+            //   } else if (dataDayOne.daily[3].weather[0].id === 800) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
+            //   } else if (dataDayOne.daily[3].weather[0].id === 801) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
+            //   } else if (dataDayOne.daily[3].weather[0].id === 802) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
+            //   } else {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
+            //   }
 
-              if (dataDayOne.daily[5].weather[0].id < 300) {
-                dayFive.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
-              } else if (
-                dataDayOne.daily[5].weather[0].id > 299 &&
-                dataDayOne.daily[5].weather[0].id < 500
-              ) {
-                dayFive.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
-              } else if (
-                dataDayOne.daily[5].weather[0].id > 499 &&
-                dataDayOne.daily[5].weather[0].id < 600
-              ) {
-                dayFive.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
-              } else if (
-                dataDayOne.daily[5].weather[0].id > 599 &&
-                dataDayOne.daily[5].weather[0].id < 701
-              ) {
-                dayFive.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
-              } else if (
-                dataDayOne.daily[5].weather[0].id > 700 &&
-                dataDayOne.daily[5].weather[0].id < 800
-              ) {
-                dayFive.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
-              } else if (dataDayOne.daily[5].weather[0].id === 800) {
-                dayFive.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
-              } else if (dataDayOne.daily[5].weather[0].id === 801) {
-                dayFive.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
-              } else if (dataDayOne.daily[5].weather[0].id === 802) {
-                dayFive.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
-              } else {
-                dayFive.innerHTML =
-                  "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
-              }
+            //   if (dataDayOne.daily[3].weather[0].id < 300) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[3].weather[0].id > 299 &&
+            //     dataDayOne.daily[3].weather[0].id < 500
+            //   ) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[3].weather[0].id > 499 &&
+            //     dataDayOne.daily[3].weather[0].id < 600
+            //   ) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[3].weather[0].id > 599 &&
+            //     dataDayOne.daily[3].weather[0].id < 701
+            //   ) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[3].weather[0].id > 700 &&
+            //     dataDayOne.daily[3].weather[0].id < 800
+            //   ) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
+            //   } else if (dataDayOne.daily[3].weather[0].id === 800) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
+            //   } else if (dataDayOne.daily[3].weather[0].id === 801) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
+            //   } else if (dataDayOne.daily[3].weather[0].id === 802) {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
+            //   } else {
+            //     dayThree.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
+            //   }
+
+            //   if (dataDayOne.daily[4].weather[0].id < 300) {
+            //     dayFour.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[4].weather[0].id > 299 &&
+            //     dataDayOne.daily[4].weather[0].id < 500
+            //   ) {
+            //     dayFour.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[4].weather[0].id > 499 &&
+            //     dataDayOne.daily[4].weather[0].id < 600
+            //   ) {
+            //     dayFour.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[4].weather[0].id > 599 &&
+            //     dataDayOne.daily[4].weather[0].id < 701
+            //   ) {
+            //     dayFour.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[4].weather[0].id > 700 &&
+            //     dataDayOne.daily[4].weather[0].id < 800
+            //   ) {
+            //     dayFour.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
+            //   } else if (dataDayOne.daily[4].weather[0].id === 800) {
+            //     dayFour.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
+            //   } else if (dataDayOne.daily[4].weather[0].id === 801) {
+            //     dayFour.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
+            //   } else if (dataDayOne.daily[4].weather[0].id === 802) {
+            //     dayFour.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
+            //   } else {
+            //     dayFour.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
+            //   }
+
+            //   if (dataDayOne.daily[5].weather[0].id < 300) {
+            //     dayFive.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/11d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[5].weather[0].id > 299 &&
+            //     dataDayOne.daily[5].weather[0].id < 500
+            //   ) {
+            //     dayFive.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/09d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[5].weather[0].id > 499 &&
+            //     dataDayOne.daily[5].weather[0].id < 600
+            //   ) {
+            //     dayFive.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/10d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[5].weather[0].id > 599 &&
+            //     dataDayOne.daily[5].weather[0].id < 701
+            //   ) {
+            //     dayFive.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/13d@2x.png' />";
+            //   } else if (
+            //     dataDayOne.daily[5].weather[0].id > 700 &&
+            //     dataDayOne.daily[5].weather[0].id < 800
+            //   ) {
+            //     dayFive.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/50d@2x.png' />";
+            //   } else if (dataDayOne.daily[5].weather[0].id === 800) {
+            //     dayFive.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/01d@2x.png' />";
+            //   } else if (dataDayOne.daily[5].weather[0].id === 801) {
+            //     dayFive.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/02d@2x.png' />";
+            //   } else if (dataDayOne.daily[5].weather[0].id === 802) {
+            //     dayFive.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/03d@2x.png' />";
+            //   } else {
+            //     dayFive.innerHTML =
+            //       "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
+            //   }
               // dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/10d@2x.png' />"
               console.log(dataDayOne.daily[2].weather[0].id);
               console.log("Temp: " + dataDayOne.daily[2].temp.day);

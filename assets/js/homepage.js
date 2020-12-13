@@ -161,7 +161,7 @@ $("#clickToSearch").on("click", function () {
   var cityHumidity = document.querySelector("#cityHumidity");
   var cityWindSpeed = document.querySelector("#cityWindSpeed");
   var cityUvIndex = document.querySelector("#cityUvIndex");
-
+  var dayOne = document.querySelector('#dayOne');
   fetch(
     // fetches current day information
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -214,8 +214,12 @@ $("#clickToSearch").on("click", function () {
             return dataDayOne.json();
           })
           .then(function (dataDayOne) {
+
+            
             console.log(dataDayOne);
             console.log(dataDayOne.list[1].weather[0].main)
+            console.log(dataDayOne.list[1].weather[0].id)
+            dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/10d@2x.png' />"
             console.log(dataDayOne.list[1].main.temp)
             console.log(dataDayOne.list[1].main.humidity)
 
@@ -245,3 +249,11 @@ $("#clickToSearch").on("click", function () {
 // currentWeatherEl.appendChild(currentWeatherCity);
 //var currentCityName = document.createElement('h3')
 //currentCityName.val()
+
+//https://openweathermap.org/weather-conditions
+            // ask about deg f
+            // fix five day forcast box
+            // create saved history list
+            // add icon for current day
+            // color uv index
+            // conditions Snow Clouds Clear Rain

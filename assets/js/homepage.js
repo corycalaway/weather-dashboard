@@ -1,3 +1,5 @@
+var list = JSON.parse(localStorage.getItem("saveTextList")) || [];
+
 var setTimeDate = function () {
   dateTime = luxon.DateTime.local();
 
@@ -584,6 +586,7 @@ $("#clickToSearch").on("click", function () {
               // console.log(dataDayOne.list[39].weather[0].main)
               // console.log(dataDayOne.list[39].main.temp)
               // console.log(dataDayOne.list[39].main.humidity)
+              return saveCitySearch(searchTermValue)
             });
         });
     });
@@ -602,3 +605,18 @@ $("#clickToSearch").on("click", function () {
 // add icon for current day
 // color uv index
 // conditions Snow Clouds Clear Rain
+
+var saveCitySearch = function(searchTermValue) {
+ console.log(searchTermValue);
+ var savedCityInfo = searchTermValue
+ 
+ console.log(savedCityInfo)
+ list.push(savedCityInfo)
+ localStorage.setItem("saveTextList", JSON.stringify(list))
+}
+// on click save value of input and create an unordered list
+// save value to array
+// push array to local storage
+// retireve array from local storage
+// insert array data into unordered list
+// on click in unordered list insert value into funciton for data

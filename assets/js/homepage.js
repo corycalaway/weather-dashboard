@@ -18,8 +18,11 @@ currentWeather.appendChild(currentWeatherEl);
 
 // City name and date
 var currentWeatherCity = document.createElement('li');
+$(currentWeatherCity).attr('id', 'cityName')
 currentWeatherCity.classList.add("list-group-item");
 currentWeatherEl.appendChild(currentWeatherCity);
+//var currentCityName = document.createElement('h3')
+//currentCityName.val()
 
 // current temperature for listed city
 var currentTemp = document.createElement('li');
@@ -137,3 +140,19 @@ dayFiveDate.textContent = dateTime.plus({ days: 5}).toLocaleString();
 
 //currentWeatherFunction();
 setTimeDate();
+//var searchTermValue = document.querySelector('#searchValue');
+$('#clickToSearch').on( 'click', function() {
+    var searchTermValue = document.querySelector('#searchValue').value;
+    //$('#searchValue').value
+    
+    var currentCityName = document.createElement('h3');
+    currentCityName.textContent = searchTermValue + ' ' + dateTime.toLocaleString();
+    $('#cityName').append(currentCityName);
+ 
+})
+// var currentWeatherCity = document.createElement('li');
+// $(currentWeatherCity).attr('id', 'cityName')
+// currentWeatherCity.classList.add("list-group-item");
+// currentWeatherEl.appendChild(currentWeatherCity);
+//var currentCityName = document.createElement('h3')
+//currentCityName.val()

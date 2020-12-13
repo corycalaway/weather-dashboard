@@ -31,6 +31,9 @@ currentWeatherCity.appendChild(currentCityName);
 var currentTemp = document.createElement('li');
 currentTemp.classList.add("list-group-item");
 currentWeatherEl.appendChild(currentTemp);
+var currentCityTemp = document.createElement('div');
+$(currentCityTemp).attr('id', 'cityTemp')
+currentTemp.appendChild(currentCityTemp);
 
 // current humidty for listed city
 var currentHumidty = document.createElement('li');
@@ -148,16 +151,15 @@ $('#clickToSearch').on( 'click', function() {
     // value searched
     var searchTermValue = document.querySelector('#searchValue').value;
     
-    // creates city name and date in current weather display
+    
    // var currentCityName = document.createElement('h3');
     //$('#cityName').append(currentCityName);
     var cityNameEl = document.querySelector('#cityName')
-    
+    var cityTemp = document.querySelector('#cityTemp')
 
-    //searchTermValue.value = '';
     fetch(
-
-        'https://api.openweathermap.org/data/2.5/weather?q=' + searchTermValue + '&appid=0acf12d8bd778cde56ecc4787ac0581a'
+        // fetches current day information
+        'https://api.openweathermap.org/data/2.5/weather?q=' + searchTermValue + '&appid=0acf12d8bd778cde56ecc4787ac0581a&units=imperial'
         //'https://api.openweathermap.org/data/2.5/forecast?id=524901&appid=0acf12d8bd778cde56ecc4787ac0581a'
     )
     .then(function(response) {
@@ -165,7 +167,11 @@ $('#clickToSearch').on( 'click', function() {
       })
       .then(function(response) {
         console.log(response);
+        // creates city name and date in current weather display
         cityNameEl.textContent = searchTermValue + ' ' + '(' + dateTime.toLocaleString() + ')';
+        //cityTemp.textContent = 'Temperature:';
+        cityTemp.textContent = 'Temperature: ' + ('src', response.main.temp); + '&#8457';
+        console.log(cityTemp)
       })
       
 })

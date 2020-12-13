@@ -240,9 +240,25 @@ $("#clickToSearch").on("click", function () {
               console.log("Temp: " + dataDayOne.daily[1].temp.day);
               console.log("Humidity: " + dataDayOne.daily[1].humidity + "%");
 
-                var testing = ("src", dataDayOne.daily[1].weather[0].icon)
+                var dayOneVar = ("src", dataDayOne.daily[1].weather[0].icon)
               dayOne.innerHTML =
-                "<img src='https://openweathermap.org/img/wn/" + testing + "@2x.png' />";(dataDayOne.daily[1].weather[0].id)
+                "<img src='https://openweathermap.org/img/wn/" + dayOneVar + "@2x.png' />";
+
+                var dayTwoVar = ("src", dataDayOne.daily[2].weather[0].icon)
+              dayTwo.innerHTML =
+                "<img src='https://openweathermap.org/img/wn/" + dayTwoVar + "@2x.png' />";
+
+                var dayThreeVar = ("src", dataDayOne.daily[3].weather[0].icon)
+              dayThree.innerHTML =
+                "<img src='https://openweathermap.org/img/wn/" + dayThreeVar + "@2x.png' />";
+
+                var dayFourVar = ("src", dataDayOne.daily[4].weather[0].icon)
+              dayFour.innerHTML =
+                "<img src='https://openweathermap.org/img/wn/" + dayFourVar + "@2x.png' />";
+
+                var dayFiveVar = ("src", dataDayOne.daily[5].weather[0].icon)
+              dayFive.innerHTML =
+                "<img src='https://openweathermap.org/img/wn/" + dayFiveVar + "@2x.png' />";
 
             //   if (dataDayOne.daily[1].weather[0].id < 300) {
             //     dayOne.innerHTML =

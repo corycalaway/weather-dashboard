@@ -179,11 +179,11 @@ $('#clickToSearch').on( 'click', function() {
       .then(function(response) {
         console.log(response);
         // creates city name and date in current weather display
-        cityNameEl.textContent = searchTermValue + ' ' + '(' + dateTime.toLocaleString() + ')';
+        cityNameEl.textContent = searchTermValue + ' (' + dateTime.toLocaleString() + ')';
         //cityTemp.textContent = 'Temperature:';
         cityTemp.textContent = 'Temperature: ' + ('src', response.main.temp); + '&#8457';
-        cityHumidity.textContent = '1';
-        cityWindSpeed.textContent = '2';
+        cityHumidity.textContent = 'Humidity: ' + ('src', response.main.humidity) + '%';
+        cityWindSpeed.textContent = 'Wind Speed: ' + ('src', response.wind.speed) + ' MPH';
         cityUvIndex.textContent = '3'
         console.log(cityTemp)
       })

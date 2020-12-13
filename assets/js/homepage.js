@@ -618,7 +618,26 @@ var saveCitySearch = function(searchTermValue) {
 }
 
 var searchHistoryList = function() {
-    console.log('starthere')
+    console.log(list)
+    
+    // var addedForRemoval = document.querySelector("#addedForRemoval")
+    // addedForRemoval.remove();
+
+    var searchHistoryEl = document.querySelector('#searchHistoryEl')
+    var taskRowHistory = $("<ul>").addClass("row").attr("id", "addedForRemoval")
+    $(searchHistoryEl).append(taskRowHistory)
+
+    // removes previous saved results
+    $('.removeEl').remove();
+    $.each(list, function (index, value) {
+    
+       var taskHistoryLi = $("<li>").addClass("col list-group-item removeEl")
+       $(searchHistoryEl).append(taskHistoryLi)
+       taskHistoryLi.text(list[index]);
+       
+      
+    }
+    )
 }
 
 // on click save value of input and create an unordered list

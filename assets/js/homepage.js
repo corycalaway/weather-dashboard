@@ -36,20 +36,28 @@ $(currentCityTemp).attr('id', 'cityTemp')
 currentTemp.appendChild(currentCityTemp);
 
 // current humidty for listed city
-var currentHumidty = document.createElement('li');
-currentHumidty.classList.add("list-group-item");
-currentWeatherEl.appendChild(currentHumidty);
+var currentHumidity = document.createElement('li');
+currentHumidity.classList.add("list-group-item");
+currentWeatherEl.appendChild(currentHumidity);
+var currentCityHumidity = document.createElement('div');
+$(currentCityHumidity).attr('id', 'cityHumidity')
+currentHumidity.appendChild(currentCityHumidity);
 
 // current wind speed for listed city
 var currentWindSpeed = document.createElement('li');
 currentWindSpeed.classList.add("list-group-item");
 currentWeatherEl.appendChild(currentWindSpeed);
+var currentCityWindSpeed = document.createElement('div');
+$(currentCityWindSpeed).attr('id', 'cityWindSpeed')
+currentWindSpeed.appendChild(currentCityWindSpeed);
 
 // current UV index for listed city
 var currentUvIndex = document.createElement('li');
 currentUvIndex.classList.add("list-group-item");
 currentWeatherEl.appendChild(currentUvIndex);
-
+var currentCityUvIndex = document.createElement('div');
+$(currentCityUvIndex).attr('id', 'cityUvIndex')
+currentUvIndex.appendChild(currentCityUvIndex);
 
 // add five day forcast
 var fiveDayForcast = document.createElement('div');
@@ -156,6 +164,9 @@ $('#clickToSearch').on( 'click', function() {
     //$('#cityName').append(currentCityName);
     var cityNameEl = document.querySelector('#cityName')
     var cityTemp = document.querySelector('#cityTemp')
+    var cityHumidity = document.querySelector('#cityHumidity')
+    var cityWindSpeed = document.querySelector('#cityWindSpeed')
+    var cityUvIndex = document.querySelector('#cityUvIndex')
 
     fetch(
         // fetches current day information
@@ -171,6 +182,9 @@ $('#clickToSearch').on( 'click', function() {
         cityNameEl.textContent = searchTermValue + ' ' + '(' + dateTime.toLocaleString() + ')';
         //cityTemp.textContent = 'Temperature:';
         cityTemp.textContent = 'Temperature: ' + ('src', response.main.temp); + '&#8457';
+        cityHumidity.textContent = '1';
+        cityWindSpeed.textContent = '2';
+        cityUvIndex.textContent = '3'
         console.log(cityTemp)
       })
       

@@ -18,9 +18,12 @@ currentWeather.appendChild(currentWeatherEl);
 
 // City name and date
 var currentWeatherCity = document.createElement('li');
-$(currentWeatherCity).attr('id', 'cityName')
+//$(currentWeatherCity).attr('id', 'cityName')
 currentWeatherCity.classList.add("list-group-item");
 currentWeatherEl.appendChild(currentWeatherCity);
+var currentCityName = document.createElement('h3');
+$(currentCityName).attr('id', 'cityName')
+currentWeatherCity.appendChild(currentCityName);
 //var currentCityName = document.createElement('h3')
 //currentCityName.val()
 
@@ -138,16 +141,21 @@ fiveDayForcastDayFive.appendChild(dayFiveDate);
 dayFiveDate.textContent = dateTime.plus({ days: 5}).toLocaleString();
 };
 
-//currentWeatherFunction();
 setTimeDate();
-//var searchTermValue = document.querySelector('#searchValue');
+
+// when search button is clicked function
 $('#clickToSearch').on( 'click', function() {
+    // value searched
     var searchTermValue = document.querySelector('#searchValue').value;
-    //$('#searchValue').value
     
-    var currentCityName = document.createElement('h3');
-    currentCityName.textContent = searchTermValue + ' ' + dateTime.toLocaleString();
-    $('#cityName').append(currentCityName);
+    // creates city name and date in current weather display
+   // var currentCityName = document.createElement('h3');
+    //$('#cityName').append(currentCityName);
+    var cityNameEl = document.querySelector('#cityName')
+    cityNameEl.textContent = searchTermValue + ' ' + '(' + dateTime.toLocaleString() + ')';
+
+    //searchTermValue.value = '';
+    
  
 })
 // var currentWeatherCity = document.createElement('li');

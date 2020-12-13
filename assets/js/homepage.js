@@ -194,7 +194,7 @@ $("#clickToSearch").on("click", function () {
         searchTermValue + " (" + dateTime.toLocaleString() + ")";
       //cityTemp.textContent = 'Temperature:';
       cityTemp.innerHTML =
-        "Temperature: " + ("src", response.main.temp) + '&#8457;'
+        "Temperature: " + ("src", response.main.temp) + ' &#8457;';
       cityHumidity.textContent =
         "Humidity: " + ("src", response.main.humidity) + " %";
       cityWindSpeed.textContent =
@@ -506,6 +506,13 @@ $("#clickToSearch").on("click", function () {
             //       "<img src='https://openweathermap.org/img/wn/04d@2x.png' />";
             //   }
               // dayOne.innerHTML = "<img src='https://openweathermap.org/img/wn/10d@2x.png' />"
+
+              // five day forcast day one temp and humidity
+              var dayOneTemperature = document.querySelector('#dayOneTemperature')
+              dayOneTemperature.innerHTML = ("Temp: " + dataDayOne.daily[1].temp.day + ' &#8457;');
+              var dayOneHumidity = document.querySelector('#dayOneHumidity');
+              dayOneHumidity.textContent = ("Humidity: " + dataDayOne.daily[1].humidity + ' %');
+
               console.log(dataDayOne.daily[2].weather[0].id);
               console.log("Temp: " + dataDayOne.daily[2].temp.day);
               console.log("Humidity: " + dataDayOne.daily[2].humidity + "%");

@@ -184,10 +184,25 @@ $('#clickToSearch').on( 'click', function() {
         cityTemp.textContent = 'Temperature: ' + ('src', response.main.temp); + '&#8457';
         cityHumidity.textContent = 'Humidity: ' + ('src', response.main.humidity) + '%';
         cityWindSpeed.textContent = 'Wind Speed: ' + ('src', response.wind.speed) + ' MPH';
-        cityUvIndex.textContent = '3'
-        console.log(cityTemp)
-      })
+        var cityLat = ('src', response.coord.lat)
+        var cityLon = ('src', response.coord.lon)
+        console.log(cityLat)
+        console.log(cityLon)
+        //return (cityLat, cityLon)
+        
       
+      fetch(
+        'https://api.openweathermap.org/data/2.5/uvi?lat=' + cityLat + '&lon=' + cityLon + '&appid=0acf12d8bd778cde56ecc4787ac0581a'
+       )
+          .then(function(data) {
+              return data.json();
+          })
+          .then(function(data) {
+              console.log(data)
+              cityUvIndex.textContent = 'UV Index: ' + ('src', data.value)
+          })
+      
+        })
 })
 // var currentWeatherCity = document.createElement('li');
 // $(currentWeatherCity).attr('id', 'cityName')

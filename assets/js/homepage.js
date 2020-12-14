@@ -2,19 +2,13 @@ var list = JSON.parse(localStorage.getItem("saveTextListing")) || [];
 //var reversed = list.reverse();
 var setTimeDate = function () {
   dateTime = luxon.DateTime.local();
-
-  //currentWeatherFunction(dateTime);
 };
-//var searchTermValue = document.querySelector("#searchValue").value;
 
 var searchFunction = function (searchTermValue) {
   // value searched
   if (list.length > 5) {
-      list.pop();
+    list.pop();
   }
-
-  // var currentCityName = document.createElement('h3');
-  //$('#cityName').append(currentCityName);
   var cityNameEl = document.querySelector("#cityName");
   var cityTemp = document.querySelector("#cityTemp");
   var cityHumidity = document.querySelector("#cityHumidity");
@@ -48,10 +42,14 @@ var searchFunction = function (searchTermValue) {
     })
     .then(function (response) {
       console.log(response);
-      var dayIcon = ("src", response.weather[0].icon)
-      // creates city name and date in current weather display 
+      var dayIcon = ("src", response.weather[0].icon);
+      // creates city name and date in current weather display
       cityNameEl.innerHTML =
-        searchTermValue + " (" + dateTime.toLocaleString() + ")" + "<img src='https://openweathermap.org/img/wn/" +
+        searchTermValue +
+        " (" +
+        dateTime.toLocaleString() +
+        ")" +
+        "<img src='https://openweathermap.org/img/wn/" +
         dayIcon +
         "@2x.png' />";
       //cityTemp.textContent = 'Temperature:';
@@ -63,7 +61,7 @@ var searchFunction = function (searchTermValue) {
         "Wind Speed: " + ("src", response.wind.speed) + " MPH";
       var cityLat = ("src", response.coord.lat);
       var cityLon = ("src", response.coord.lon);
-      
+
       // api for uv index
       fetch(
         "https://api.openweathermap.org/data/2.5/uvi?lat=" +
@@ -76,13 +74,11 @@ var searchFunction = function (searchTermValue) {
           return data.json();
         })
         .then(function (data) {
-         
-
           //0 to 3 green for favorable greater than 3 less 7 moderate greater than 7 severe
           var uvIndexTitle = document.querySelector("#uvIndexTitle");
           uvIndexTitle.textContent = "UV Index: ";
           cityUvIndex.textContent = " " + ("src", data.value);
-         
+
           if (("src", data.value) <= 3) {
             cityUvIndex.classList.remove("bg-danger");
             cityUvIndex.classList.remove("bg-warning");
@@ -98,8 +94,6 @@ var searchFunction = function (searchTermValue) {
           }
 
           fetch(
-            // 'https://api.openweathermap.org/data/2.5/forecast?q='+ searchTermValue +'&appid=0acf12d8bd778cde56ecc4787ac0581a&units=imperial'
-
             "https://api.openweathermap.org/data/2.5/onecall?lat=" +
               cityLat +
               "&lon=" +
@@ -111,7 +105,6 @@ var searchFunction = function (searchTermValue) {
             })
             .then(function (dataDayOne) {
               // used time stamp converter to confirm date
-
 
               var dayOneVar = ("src", dataDayOne.daily[1].weather[0].icon);
               dayOne.innerHTML =
@@ -196,14 +189,6 @@ var searchFunction = function (searchTermValue) {
         });
     });
 };
-// var currentWeatherCity = document.createElement('li');
-// $(currentWeatherCity).attr('id', 'cityName')
-// currentWeatherCity.classList.add("list-group-item");
-// currentWeatherEl.appendChild(currentWeatherCity);
-//var currentCityName = document.createElement('h3')
-//currentCityName.val()
-
-// add icon for current day
 
 // save data to local storage
 var saveCitySearch = function (searchTermValue) {
@@ -215,11 +200,6 @@ var saveCitySearch = function (searchTermValue) {
 };
 
 var searchHistoryList = function (searchTermValue) {
-
-  // var addedForRemoval = document.querySelector("#addedForRemoval")
-  // addedForRemoval.remove();
- // var reversed = list.reverse();
-  // list = reversed
   var searchHistoryEl = document.querySelector("#searchHistoryEl");
   $(".removeSpaceEl").remove();
   var taskRowHistory = $("<ul>")
@@ -238,11 +218,11 @@ var searchHistoryList = function (searchTermValue) {
 
     // makes search buttons clickable
     $("#clickElement" + index).on("click", function () {
-         
-      searchTermValue = document.querySelector("#clickElement" + index).textContent;
-     // $("#clickElement" + index).remove(); 
-     list.splice(index, 1)
-     //list.pop("#clickElement" + index);
+      searchTermValue = document.querySelector("#clickElement" + index)
+        .textContent;
+      // $("#clickElement" + index).remove();
+      list.splice(index, 1);
+      //list.pop("#clickElement" + index);
       searchFunction(searchTermValue);
     });
   });
@@ -250,17 +230,10 @@ var searchHistoryList = function (searchTermValue) {
 
 // when search button is clicked function
 $("#clickToSearch").on("click", function (searchTermValue) {
+  searchTermValue = document.querySelector("#searchValue").value;
 
- searchTermValue = document.querySelector("#searchValue").value;
- 
   searchFunction(searchTermValue);
 });
 
 setTimeDate();
 searchHistoryList();
-// on click save value of input and create an unordered list
-// save value to array
-// push array to local storage
-// retireve array from local storage
-// insert array data into unordered list
-// on click in unordered list insert value into funciton for data

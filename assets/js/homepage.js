@@ -1,5 +1,5 @@
 var list = JSON.parse(localStorage.getItem("saveTextList")) || [];
-
+//var reversed = list.reverse();
 var setTimeDate = function () {
   dateTime = luxon.DateTime.local();
 
@@ -211,7 +211,7 @@ var saveCitySearch = function (searchTermValue) {
   var savedCityInfo = searchTermValue;
 
   console.log(savedCityInfo);
-  list.push(savedCityInfo);
+  list.unshift(savedCityInfo);
   localStorage.setItem("saveTextList", JSON.stringify(list));
   searchHistoryList(searchTermValue);
 };
@@ -221,7 +221,7 @@ var searchHistoryList = function (searchTermValue) {
 
   // var addedForRemoval = document.querySelector("#addedForRemoval")
   // addedForRemoval.remove();
-  var reversed = list.reverse();
+ // var reversed = list.reverse();
   // list = reversed
   var searchHistoryEl = document.querySelector("#searchHistoryEl");
   $(".removeSpaceEl").remove();
@@ -241,8 +241,13 @@ var searchHistoryList = function (searchTermValue) {
 
     // makes search buttons clickable
     $("#clickElement" + index).on("click", function () {
-        
+         
       searchTermValue = document.querySelector("#clickElement" + index).textContent;
+     // $("#clickElement" + index).remove(); 
+    
+     //list.pop(5);
+     
+     console.log(list)
       searchFunction(searchTermValue);
       console.log(searchTermValue)
       console.log('#clickElement' + index)
@@ -254,6 +259,7 @@ var searchHistoryList = function (searchTermValue) {
 $("#clickToSearch").on("click", function (searchTermValue) {
 
  searchTermValue = document.querySelector("#searchValue").value;
+ 
   searchFunction(searchTermValue);
 });
 

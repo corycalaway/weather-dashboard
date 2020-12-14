@@ -10,4 +10,29 @@
 .fiveDayCard {
     background-color: rgb(5, 49, 170);
     color: rgb(255, 255, 255);
+    border-radius: 10px;
 }
+
+.cornerFix {
+    border-radius: 5px;
+    font-size: 1.2vw;
+}
+img {
+    max-width: 50%;
+}
+
+@media only screen and (max-width: 700px) {
+    .cornerFix {
+        border-radius: 5px;
+        font-size: 3vw;
+    }
+    }
+  
+
+@media only screen and (min-width: 1000px) {
+    .cornerFix {
+        border-radius: 5px;
+        font-size: .8vw;
+    }
+    }
+  

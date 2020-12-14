@@ -152,7 +152,12 @@ var setTimeDate = function () {
 setTimeDate();
 
 // when search button is clicked function
-$("#clickToSearch").on("click", function () {
+$("#clickToSearch").on("click", function () { 
+    searchFunction();
+});
+
+
+var searchFunction = function() {
   // value searched
   var searchTermValue = document.querySelector("#searchValue").value;
 
@@ -590,7 +595,7 @@ $("#clickToSearch").on("click", function () {
             });
         });
     });
-});
+};
 // var currentWeatherCity = document.createElement('li');
 // $(currentWeatherCity).attr('id', 'cityName')
 // currentWeatherCity.classList.add("list-group-item");

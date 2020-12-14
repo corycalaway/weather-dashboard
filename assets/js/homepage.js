@@ -5,10 +5,11 @@ var setTimeDate = function () {
 
   //currentWeatherFunction(dateTime);
 };
+//var searchTermValue = document.querySelector("#searchValue").value;
 
-var searchFunction = function () {
+var searchFunction = function (searchTermValue) {
   // value searched
-  var searchTermValue = document.querySelector("#searchValue").value;
+  
 
   // var currentCityName = document.createElement('h3');
   //$('#cityName').append(currentCityName);
@@ -212,10 +213,10 @@ var saveCitySearch = function (searchTermValue) {
   console.log(savedCityInfo);
   list.push(savedCityInfo);
   localStorage.setItem("saveTextList", JSON.stringify(list));
-  searchHistoryList();
+  searchHistoryList(searchTermValue);
 };
 
-var searchHistoryList = function () {
+var searchHistoryList = function (searchTermValue) {
   console.log(list);
 
   // var addedForRemoval = document.querySelector("#addedForRemoval")
@@ -240,14 +241,20 @@ var searchHistoryList = function () {
 
     // makes search buttons clickable
     $("#clickElement" + index).on("click", function () {
-      console.log("test");
+        
+      searchTermValue = document.querySelector("#clickElement" + index).textContent;
+      searchFunction(searchTermValue);
+      console.log(searchTermValue)
+      console.log('#clickElement' + index)
     });
   });
 };
 
 // when search button is clicked function
-$("#clickToSearch").on("click", function () {
-  searchFunction();
+$("#clickToSearch").on("click", function (searchTermValue) {
+
+ searchTermValue = document.querySelector("#searchValue").value;
+  searchFunction(searchTermValue);
 });
 
 setTimeDate();

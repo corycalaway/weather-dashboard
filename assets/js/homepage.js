@@ -9,7 +9,9 @@ var setTimeDate = function () {
 
 var searchFunction = function (searchTermValue) {
   // value searched
-  
+  if (list.length > 5) {
+      list.pop();
+  }
 
   // var currentCityName = document.createElement('h3');
   //$('#cityName').append(currentCityName);

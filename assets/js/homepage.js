@@ -149,7 +149,6 @@ var setTimeDate = function () {
 //   dayFiveDate.textContent = dateTime.plus({ days: 5 }).toLocaleString();
 // };
 
-setTimeDate();
 
 // when search button is clicked function
 $("#clickToSearch").on("click", function () { 
@@ -556,21 +555,7 @@ var searchFunction = function() {
               var dayFiveHumidity = document.querySelector('#dayFiveHumidity');
               dayFiveHumidity.textContent = ("Humidity: " + dataDayOne.daily[5].humidity + ' %');
 
-              console.log(dataDayOne.daily[2].weather[0].id);
-              console.log("Temp: " + dataDayOne.daily[2].temp.day);
-              console.log("Humidity: " + dataDayOne.daily[2].humidity + "%");
-
-              console.log(dataDayOne.daily[3].weather[0].id);
-              console.log("Temp: " + dataDayOne.daily[3].temp.day);
-              console.log("Humidity: " + dataDayOne.daily[3].humidity + "%");
-
-              console.log(dataDayOne.daily[4].weather[0].id);
-              console.log("Temp: " + dataDayOne.daily[4].temp.day);
-              console.log("Humidity: " + dataDayOne.daily[4].humidity + "%");
-
-              console.log(dataDayOne.daily[5].weather[0].id);
-              console.log("Temp: " + dataDayOne.daily[5].temp.day);
-              console.log("Humidity: " + dataDayOne.daily[5].humidity + "%");
+              
               // console.log(dataDayOne.list[1].weather[0].id)
 
               // console.log(dataDayOne.list[1].main.temp)
@@ -628,7 +613,7 @@ var searchHistoryList = function() {
     // var addedForRemoval = document.querySelector("#addedForRemoval")
     // addedForRemoval.remove();
     var reversed = list.reverse();
-    list = reversed
+   // list = reversed
     var searchHistoryEl = document.querySelector('#searchHistoryEl')
     $('.removeSpaceEl').remove();
     var taskRowHistory = $("<ul>").addClass("row removeSpaceEl").attr("id", "addedForRemoval")
@@ -648,6 +633,9 @@ var searchHistoryList = function() {
     )
 }
 
+
+setTimeDate();
+searchHistoryList();
 // on click save value of input and create an unordered list
 // save value to array
 // push array to local storage

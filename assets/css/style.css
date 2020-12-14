@@ -1,3 +1,13 @@
 .minorSpacing {
-    margin: 0 .5vw;
+    margin: .5vw;
+}
+
+.weatherHead {
+    background-color: rgb(39, 37, 49);
+    color: rgb(255, 255, 255);
+}
+
+.fiveDayCard {
+    background-color: rgb(5, 49, 170);
+    color: rgb(255, 255, 255);
 }

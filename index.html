@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- header/jumbotron -->
-    <header class="d-flex justify-content-center">
+    <header class="d-flex justify-content-center weatherHead">
         <h1 class=>Weather Dashboard</h1>
     </header>
     
@@ -26,7 +26,7 @@
                     </span>
                   </div>
             </div>
-            <div class="col-8">
+            <div class="col">
                 <div class="row"></div>
                     <div id="currentWeather" class="col">
                       <ul class="list-group">
@@ -56,9 +56,10 @@
                       <div class="container">
                       <div class="row"></div>
                       <h3 class="col-8">5-Day Forecast:</h3>
-                      <div class="row justify-content-between">
+                      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+                      <!--<row-cols-5 justify-content-between"> -->
                         <div class="col">
-                          <li class="list-group-item">
+                          <li class="list-group-item fiveDayCard">
                             <div id="dateDayOneFiveDay"></div>
                             <div id="dayOne"></div>
                             <div id="dayOneTemperature"></div>
@@ -67,7 +68,7 @@
                           
                         </div>
                         <div class="col">
-                          <li class="list-group-item">
+                          <li class="list-group-item fiveDayCard">
                           <div id="dateDayTwoFiveDay"></div>
                             <div id="dayTwo"></div>
                             <div id="dayTwoTemperature"></div>
@@ -75,7 +76,7 @@
                         </li>
                         </div>
                         <div class="col">
-                          <li class="list-group-item">
+                          <li class="list-group-item fiveDayCard">
                           <div id="dateDayThreeFiveDay"></div>
                             <div id="dayThree"></div>
                             <div id="dayThreeTemperature"></div>
@@ -83,7 +84,7 @@
                         </li>
                         </div>
                         <div class="col">
-                          <li class="list-group-item">
+                          <li class="list-group-item fiveDayCard">
                           <div id="dateDayFourFiveDay"></div>
                             <div id="dayFour"></div>
                             <div id="dayFourTemperature"></div>
@@ -91,7 +92,7 @@
                         </li>
                         </div>
                         <div class="col">
-                          <li class="list-group-item">
+                          <li class="list-group-item fiveDayCard">
                           <div id="dateDayFiveFiveDay"></div>
                             <div id="dayFive"></div>
                             <div id="dayFiveTemperature"></div>

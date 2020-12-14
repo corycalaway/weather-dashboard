@@ -244,8 +244,9 @@ var searchHistoryList = function (searchTermValue) {
          
       searchTermValue = document.querySelector("#clickElement" + index).textContent;
      // $("#clickElement" + index).remove(); 
-    
-     //list.pop(5);
+    console.log(index + 'here')
+     list.splice(index, 1)
+     //list.pop("#clickElement" + index);
      
      console.log(list)
       searchFunction(searchTermValue);

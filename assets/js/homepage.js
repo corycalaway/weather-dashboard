@@ -1,4 +1,4 @@
-var list = JSON.parse(localStorage.getItem("saveTextList")) || [];
+var list = JSON.parse(localStorage.getItem("saveTextListing")) || [];
 //var reversed = list.reverse();
 var setTimeDate = function () {
   dateTime = luxon.DateTime.local();
@@ -210,7 +210,7 @@ var saveCitySearch = function (searchTermValue) {
   var savedCityInfo = searchTermValue;
 
   list.unshift(savedCityInfo);
-  localStorage.setItem("saveTextList", JSON.stringify(list));
+  localStorage.setItem("saveTextListing", JSON.stringify(list));
   searchHistoryList(searchTermValue);
 };
 

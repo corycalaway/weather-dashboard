@@ -16,5 +16,5 @@
 ### Link
 [Deployed application](https://corycalaway.github.io/weather-dashboard/)
 
-### Daily Planner Layout
+### Weathe Dashboard Layout
 ![Screenshot-of-website](./assets/images/weather-page.png)

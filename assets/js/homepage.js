@@ -48,9 +48,12 @@ var searchFunction = function (searchTermValue) {
     })
     .then(function (response) {
       console.log(response);
-      // creates city name and date in current weather display
-      cityNameEl.textContent =
-        searchTermValue + " (" + dateTime.toLocaleString() + ")";
+      var dayIcon = ("src", response.weather[0].icon)
+      // creates city name and date in current weather display 
+      cityNameEl.innerHTML =
+        searchTermValue + " (" + dateTime.toLocaleString() + ")" + "<img src='https://openweathermap.org/img/wn/" +
+        dayIcon +
+        "@2x.png' />";
       //cityTemp.textContent = 'Temperature:';
       cityTemp.innerHTML =
         "Temperature: " + ("src", response.main.temp) + " &#8457;";
@@ -60,9 +63,7 @@ var searchFunction = function (searchTermValue) {
         "Wind Speed: " + ("src", response.wind.speed) + " MPH";
       var cityLat = ("src", response.coord.lat);
       var cityLon = ("src", response.coord.lon);
-      console.log(cityLat);
-      console.log(cityLon);
-
+      
       // api for uv index
       fetch(
         "https://api.openweathermap.org/data/2.5/uvi?lat=" +
@@ -75,13 +76,13 @@ var searchFunction = function (searchTermValue) {
           return data.json();
         })
         .then(function (data) {
-          console.log(data);
+         
 
           //0 to 3 green for favorable greater than 3 less 7 moderate greater than 7 severe
           var uvIndexTitle = document.querySelector("#uvIndexTitle");
           uvIndexTitle.textContent = "UV Index: ";
           cityUvIndex.textContent = " " + ("src", data.value);
-          console.log(cityUvIndex);
+         
           if (("src", data.value) <= 3) {
             cityUvIndex.classList.remove("bg-danger");
             cityUvIndex.classList.remove("bg-warning");
@@ -109,11 +110,8 @@ var searchFunction = function (searchTermValue) {
               return dataDayOne.json();
             })
             .then(function (dataDayOne) {
-              console.log(dataDayOne);
               // used time stamp converter to confirm date
-              console.log(dataDayOne.daily[1].weather[0].id);
-              console.log("Temp: " + dataDayOne.daily[1].temp.day);
-              console.log("Humidity: " + dataDayOne.daily[1].humidity + "%");
+
 
               var dayOneVar = ("src", dataDayOne.daily[1].weather[0].icon);
               dayOne.innerHTML =
@@ -209,17 +207,14 @@ var searchFunction = function (searchTermValue) {
 
 // save data to local storage
 var saveCitySearch = function (searchTermValue) {
-  console.log(searchTermValue);
   var savedCityInfo = searchTermValue;
 
-  console.log(savedCityInfo);
   list.unshift(savedCityInfo);
   localStorage.setItem("saveTextList", JSON.stringify(list));
   searchHistoryList(searchTermValue);
 };
 
 var searchHistoryList = function (searchTermValue) {
-  console.log(list);
 
   // var addedForRemoval = document.querySelector("#addedForRemoval")
   // addedForRemoval.remove();
@@ -246,14 +241,9 @@ var searchHistoryList = function (searchTermValue) {
          
       searchTermValue = document.querySelector("#clickElement" + index).textContent;
      // $("#clickElement" + index).remove(); 
-    console.log(index + 'here')
      list.splice(index, 1)
      //list.pop("#clickElement" + index);
-     
-     console.log(list)
       searchFunction(searchTermValue);
-      console.log(searchTermValue)
-      console.log('#clickElement' + index)
     });
   });
 };

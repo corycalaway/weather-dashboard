@@ -41,7 +41,6 @@ var searchFunction = function (searchTermValue) {
       return response.json();
     })
     .then(function (response) {
-      console.log(response);
       var dayIcon = ("src", response.weather[0].icon);
       // creates city name and date in current weather display
       cityNameEl.innerHTML =
